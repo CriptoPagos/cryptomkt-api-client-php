@@ -1,0 +1,24 @@
+{
+    "name": "sasco/cryptomkt-api-client",
+    "description": "Cliente para servicios web de CryptoMKT en PHP",
+    "type": "library",
+    "keywords": ["cryptomkt", "ethereum"],
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "SASCO SpA",
+            "homepage": "https://sasco.cl"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/CriptoPagos/cryptomkt-api-client-php/issues",
+        "source": "https://github.com/CriptoPagos/cryptomkt-api-client-php"
+    },
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {"sasco\\CryptoMKT\\": "lib/"}
+    }
+}
