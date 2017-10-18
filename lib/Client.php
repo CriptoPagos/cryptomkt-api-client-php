@@ -24,15 +24,16 @@ namespace sasco\CryptoMKT;
 /**
  * Clase principal con el cliente de CryptoMKT
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-13
+ * @version 2017-10-18
  */
 class Client extends Object
 {
 
     private $_url = 'https://api.cryptomkt.com'; ///< URL base para las llamadas a la API
     private $_version = 'v1'; ///< Versión de la API con la que funciona este SDK
-    protected $auth_key; ///< API key para autenticación
-    protected $auth_secret; ///< API secret para autenticación
+    protected $default_limit = 100; ///< Límite por defecto a usar en consultas paginadas (se usa el máximo por defecto)
+    protected $api_key; ///< API key para autenticación
+    protected $api_secret; ///< API secret para autenticación
     protected $response; ///< Objeto con la respuesta del servicio web de CryptoMKT
 
     /**
@@ -74,10 +75,13 @@ class Client extends Object
      * Método que entrega un libro de órdenes, ya sea de compra o venta
      * Este método no requiere autenticación
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-10-18
      */
-    public function getBook($market, $type, $page = 0, $limit = 20)
+    public function getBook($market, $type, $page = 0, $limit = null)
     {
+        if (!$limit) {
+            $limit = $this->getDefaultLimit();
+        }
         $url = $this->createUrl('/book', compact('market', 'type', 'page', 'limit'));
         $this->setResponse($this->consume($url));
         $body = json_decode($this->getResponse()->getBody());
@@ -91,15 +95,18 @@ class Client extends Object
      * Método que entrega el listado de intercambios cursados en CryptoMKT
      * Este método no requiere autenticación
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-10-18
      */
-    public function getTrades($market, $start = null, $end = null, $page = 0, $limit = 20)
+    public function getTrades($market, $start = null, $end = null, $page = 0, $limit = null)
     {
         if (!$start) {
             $start = date('Y-m-d');
         }
         if (!$end) {
             $end = $start;
+        }
+        if (!$limit) {
+            $limit = $this->getDefaultLimit();
         }
         $url = $this->createUrl('/trades', compact('market', 'start', 'end', 'page', 'limit'));
         $this->setResponse($this->consume($url));
@@ -114,10 +121,13 @@ class Client extends Object
      * Método que entrega el listado de ordenes activas del usuario en cierto mercado
      * Este método si requiere autenticación
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-10-18
      */
-    public function getActiveOrders($market, $page = 0, $limit = 20)
+    public function getActiveOrders($market, $page = 0, $limit = null)
     {
+        if (!$limit) {
+            $limit = $this->getDefaultLimit();
+        }
         $url = $this->createUrl('/orders/active', compact('market', 'page', 'limit'));
         $this->setResponse($this->consume($url));
         $body = json_decode($this->getResponse()->getBody());
@@ -131,10 +141,13 @@ class Client extends Object
      * Método que entrega el listado de ordenes ejecutadas del usuario en cierto mercado
      * Este método si requiere autenticación
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-10-18
      */
-    public function getExecutedOrders($market, $page = 0, $limit = 20)
+    public function getExecutedOrders($market, $page = 0, $limit = null)
     {
+        if (!$limit) {
+            $limit = $this->getDefaultLimit();
+        }
         $url = $this->createUrl('/orders/executed', compact('market', 'page', 'limit'));
         $this->setResponse($this->consume($url));
         $body = json_decode($this->getResponse()->getBody());
@@ -269,7 +282,7 @@ class Client extends Object
      * Este método crea las cabeceras con la firma de los datos del servicio que
      * se está consultando
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-10-18
      */
     private function consume($url, $data = null)
     {
@@ -283,8 +296,8 @@ class Client extends Object
             }
         }
         $header = [
-            'X-MKT-APIKEY' => $this->auth_key,
-            'X-MKT-SIGNATURE' => hash_hmac('sha384', $msg, $this->auth_secret),
+            'X-MKT-APIKEY' => $this->api_key,
+            'X-MKT-SIGNATURE' => hash_hmac('sha384', $msg, $this->api_secret),
             'X-MKT-TIMESTAMP' => $timestamp,
         ];
         $Socket = new \sasco\CryptoMKT\Client\Socket();

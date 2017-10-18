@@ -68,7 +68,7 @@ class Market extends Object
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
-    public function getBuyBook($page = 0, $limit = 20)
+    public function getBuyBook($page = 0, $limit = null)
     {
         return $this->getClient()->getBook($this->getMarket(), 'buy', $page, $limit);
     }
@@ -79,7 +79,7 @@ class Market extends Object
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
-    public function getSellBook($page = 0, $limit = 20)
+    public function getSellBook($page = 0, $limit = null)
     {
         return $this->getClient()->getBook($this->getMarket(), 'sell', $page, $limit);
     }
@@ -90,7 +90,7 @@ class Market extends Object
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
-    public function getTrades($start = null, $end = null, $page = 0, $limit = 20)
+    public function getTrades($start = null, $end = null, $page = 0, $limit = null)
     {
         return $this->getClient()->getTrades($this->getMarket(), $start, $end, $page, $limit);
     }
@@ -101,7 +101,7 @@ class Market extends Object
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
-    public function getActiveOrders($page = 0, $limit = 20)
+    public function getActiveOrders($page = 0, $limit = null)
     {
         return $this->getClient()->getActiveOrders($this->getMarket(), $page, $limit);
     }
@@ -112,7 +112,7 @@ class Market extends Object
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
-    public function getExecutedOrders($page = 0, $limit = 20)
+    public function getExecutedOrders($page = 0, $limit = null)
     {
         return $this->getClient()->getExecutedOrders($this->getMarket(), $page, $limit);
     }
