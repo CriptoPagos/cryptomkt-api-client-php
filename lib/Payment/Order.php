@@ -65,6 +65,7 @@ class Order extends \sasco\CryptoMKT\Object
 
     /**
      * Método que entrega los datos que se asignaron a la orden para que sea creada
+     * @return Arreglo con los datos necesarios para la creación de la orden de pago
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -82,6 +83,7 @@ class Order extends \sasco\CryptoMKT\Object
     /**
      * Método que entrega la URL
      * Wrapper de \sasco\CryptoMKT\Payment::getPaymentUrl()
+     * @return String con la URL para el pago en CryptoMKT
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -92,6 +94,7 @@ class Order extends \sasco\CryptoMKT\Object
 
     /**
      * Método que entrega el texto asociado al estado de la orden de pago
+     * @return String con el mensaje asociado al estado de la orden de pago
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-14
      */
@@ -102,6 +105,12 @@ class Order extends \sasco\CryptoMKT\Object
 
     /**
      * Método que entrega el color asociado al estado de la orden de pago
+     * Se retorna en realidad el tipo de alerta, que se traduce en Bootstrap a un color
+     *   - danger: rojo
+     *   - info: celeste
+     *   - warning: amarillo
+     *   - success: verde
+     * @return String con el color (según tipo de alerta) asociado al estado de la orden de pago
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-14
      */
@@ -124,6 +133,7 @@ class Order extends \sasco\CryptoMKT\Object
 
     /**
      * Método que entrega el tiempo (fecha y hora) en que expira la orden de pago
+     * @return String con la fecha y hora en que expira la orden de pago (formato: AAAA-MM-DD HH:MM:SS)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-14
      */

@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 004-transacciones.php
+ * @example 004-transacciones.php
  * Ejemplo para obtener las transacciones de cierto mercado
  * @link https://developers.cryptomkt.com/es/#obtener-trades
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 001-mercados.php
+ * @example 001-mercados.php
  * Ejemplo para obtener los mercados disponibles
  * @link https://developers.cryptomkt.com/es/#obtener-mercados
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

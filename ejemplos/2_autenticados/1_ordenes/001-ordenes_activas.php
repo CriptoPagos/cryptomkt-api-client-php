@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 001-ordenes_activas.php
+ * @example 001-ordenes_activas.php
  * Ejemplo para obtener las ordenes activas de un usuario en cierto mercado
  * @link https://developers.cryptomkt.com/es/#ordenes-activas
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

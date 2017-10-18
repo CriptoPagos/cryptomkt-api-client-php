@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 006-balance.php
+ * @example 006-balance.php
  * Ejemplo para obtener el balance de las billeteras de un usuario
  * @link https://developers.cryptomkt.com/es/#obtener-balance
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

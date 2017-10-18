@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 003-libro_ordenes.php
+ * @example 003-libro_ordenes.php
  * Ejemplo para obtener el libro de ordenes de cierto mercado
  * @link https://developers.cryptomkt.com/es/#libro-de-ordenes
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

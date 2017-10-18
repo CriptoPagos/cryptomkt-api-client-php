@@ -35,6 +35,7 @@ class Response extends \sasco\CryptoMKT\Object
 
     /**
      * Constructor que asigna la respuesta del servicio web si se pasó
+     * @param datos Datos de la respuesta del servicio web de CryptoMKT
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-12
      */

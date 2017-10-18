@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 003-crear_orden.php
+ * @example 003-crear_orden.php
  * Ejemplo para crear una orden de compra o venta de un usuario en cierto mercado
  * @link https://developers.cryptomkt.com/es/#crear-orden
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

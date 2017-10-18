@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 004-estado_orden.php
+ * @example 004-estado_orden.php
  * Ejemplo para obtener el estado de una orden de un usuario
  * @link https://developers.cryptomkt.com/es/#estado-de-orden
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

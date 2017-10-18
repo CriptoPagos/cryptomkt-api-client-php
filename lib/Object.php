@@ -32,6 +32,7 @@ abstract class Object
     /**
      * Método que asigna los atributos de un objeto a este si existen en esta
      * clase y tienen valor en el objeto que se está pasando
+     * @param data Arreglo con los datos que se desean asignar (atributo => valor)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-12
      */
@@ -47,6 +48,9 @@ abstract class Object
 
     /**
      * Método mágico para procesar seters y geters de las clases
+     * @param method Sólo puede ser del tipo setX o getX (donde X debe ser un atributo válido del Objeto)
+     * @param args Sólo puede ser un parámetro args[0] que será el valor que se asignará al atributo X
+     * @return Entrega este mismo objeto (si no falla)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-12
      */

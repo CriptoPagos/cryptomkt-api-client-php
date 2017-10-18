@@ -36,6 +36,7 @@ class Market extends Object
      * Constructor del mercado, permite detectar el mercado y asignar o bien
      * se espera que quien instancia la clase lo indique (en constructor o con
      * setMarket() posteriormente)
+     * @param market Nombre del mercado que se está construyendo
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -54,6 +55,8 @@ class Market extends Object
     /**
      * Método que entrega el ticker del mercado
      * Este método no requiere autenticación
+     * @include 002-ticker.php
+     * @return Arreglo con los objetos que representan el ticker de los mercados (si es market = null, son varios mercados)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -65,6 +68,10 @@ class Market extends Object
     /**
      * Método que entrega el libro de compras del mercado
      * Este método no requiere autenticación
+     * @include 003-libro_ordenes.php
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos con los resultados de las entradas en el libro de compra
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -76,6 +83,10 @@ class Market extends Object
     /**
      * Método que entrega el libro de ventas del mercado ETHCLP
      * Este método no requiere autenticación
+     * @include 003-libro_ordenes.php
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos con los resultados de las entradas en el libro de venta
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -87,6 +98,12 @@ class Market extends Object
     /**
      * Método que entrega el listado de intercambios cursados en CryptoMKT del mercado ETHCLP
      * Este método no requiere autenticación
+     * @include 004-transacciones.php
+     * @param start Desde cuando buscar (formato: AAAA-MM-DD)
+     * @param end Hasta cuando buscar (formato: AAAA-MM-DD)
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos con las transacciones cursadas
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -98,6 +115,10 @@ class Market extends Object
     /**
      * Método que entrega el listado de ordenes activas del usuario
      * Este método si requiere autenticación
+     * @include 001-ordenes_activas.php
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos de las ordenes activas del usuario
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -109,6 +130,10 @@ class Market extends Object
     /**
      * Método que entrega el listado de ordenes ejecutadas del usuario en el mercado
      * Este método si requiere autenticación
+     * @include 002-ordenes_ejecutadas.php
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos de las ordenes ejecutadas del usuario
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -120,6 +145,10 @@ class Market extends Object
     /**
      * Método que crea una orden de compra en el libro de órdenes del mercado
      * Este método si requiere autenticación
+     * @include 003-crear_orden.php
+     * @param amount Cantidad de ETH de la orden
+     * @param price Valor de 1 ETH que se asignará a la oren
+     * @return Objeto que representa la orden de compra creada
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -131,6 +160,10 @@ class Market extends Object
     /**
      * Método que crea una orden de venta en el libro de órdenes del mercado
      * Este método si requiere autenticación
+     * @include 003-crear_orden.php
+     * @param amount Cantidad de ETH de la orden
+     * @param price Valor de 1 ETH que se asignará a la oren
+     * @return Objeto que representa la orden de venta creada
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */

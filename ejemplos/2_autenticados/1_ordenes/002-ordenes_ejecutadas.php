@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 002-ordenes_ejecutadas.php
+ * @example 002-ordenes_ejecutadas.php
  * Ejemplo para obtener las ordenes ejecutadas de un usuario en cierto mercado
  * @link https://developers.cryptomkt.com/es/#ordenes-ejecutadas
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 002-ticker.php
+ * @example 002-ticker.php
  * Ejemplo para obtener el ticker de cierto mercado
  * @link https://developers.cryptomkt.com/es/#obtener-ticker
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

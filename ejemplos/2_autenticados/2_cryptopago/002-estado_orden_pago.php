@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 002-estado_orden_pago.php
+ * @example 002-estado_orden_pago.php
  * Ejemplo para obtener el estado de una orden de pago
  * @link https://developers.cryptomkt.com/es/#estado-de-orden-de-pago
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

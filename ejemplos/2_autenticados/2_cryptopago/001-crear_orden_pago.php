@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 001-crear_orden_pago.php
+ * @example 001-crear_orden_pago.php
  * Ejemplo para crear una orden de pago
  * @link https://developers.cryptomkt.com/es/#crear-orden-de-pago
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)

@@ -39,6 +39,8 @@ class Client extends Object
     /**
      * Método que entrega los mercados disponibles en CryptoMKT
      * Este método no requiere autenticación
+     * @include 001-mercados.php
+     * @return Arreglo con los mercados disponibles
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -57,6 +59,7 @@ class Client extends Object
      * Método que entrega el ticker de algún mercados
      * Este método no requiere autenticación
      * @param market Mercado que se desea obtener o vacio (null) para obtenerlos todos
+     * @return Arreglo con los objetos que representan el ticker de los mercados (si es market = null, son varios mercados)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -74,6 +77,11 @@ class Client extends Object
     /**
      * Método que entrega un libro de órdenes, ya sea de compra o venta
      * Este método no requiere autenticación
+     * @param market Mercado sobre el que se desea operar
+     * @param type Tipo de libro a recueprar (buy o sell)
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos con los resultados de las entradas en el libro solicitado
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-18
      */
@@ -92,8 +100,15 @@ class Client extends Object
     }
 
     /**
-     * Método que entrega el listado de intercambios cursados en CryptoMKT
+     * Método que entrega el listado de transacciones cursadas en CryptoMKT
+     * Si no se especifica end, será igual a start. Si no se especifica start, será el día actual.
      * Este método no requiere autenticación
+     * @param market Mercado sobre el que se desea operar
+     * @param start Desde cuando buscar (formato: AAAA-MM-DD)
+     * @param end Hasta cuando buscar (formato: AAAA-MM-DD)
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos con las transacciones cursadas
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-18
      */
@@ -120,6 +135,10 @@ class Client extends Object
     /**
      * Método que entrega el listado de ordenes activas del usuario en cierto mercado
      * Este método si requiere autenticación
+     * @param market Mercado sobre el que se desea operar
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos de las ordenes activas del usuario
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-18
      */
@@ -140,6 +159,10 @@ class Client extends Object
     /**
      * Método que entrega el listado de ordenes ejecutadas del usuario en cierto mercado
      * Este método si requiere autenticación
+     * @param market Mercado sobre el que se desea operar
+     * @param page Página a consultar de la respuesta
+     * @param limit Límite de objetos por página (mínimo 20, máximo 100)
+     * @return Arreglo con los objetos de las ordenes ejecutadas del usuario
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-18
      */
@@ -160,6 +183,11 @@ class Client extends Object
     /**
      * Método que crea una orden en el libro de órdenes del mercado
      * Este método si requiere autenticación
+     * @param market Mercado sobre el que se desea operar
+     * @param type Tipo de orden a crear (buy o sell)
+     * @param amount Cantidad de ETH de la orden
+     * @param price Valor de 1 ETH que se asignará a la oren
+     * @return Objeto que representa la orden creada
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -177,6 +205,9 @@ class Client extends Object
     /**
      * Método que entrega el balance de las billeteras del usuario en CryptoMKT
      * Este método si requiere autenticación
+     * @include 004-estado_orden.php
+     * @param id Identificador de la orden a buscar
+     * @return Objeto que representa la orden buscada
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -194,6 +225,9 @@ class Client extends Object
     /**
      * Método que cancela una orden en el libro de órdenes del mercado
      * Este método si requiere autenticación
+     * @include 005-cancelar_orden.php
+     * @param id Identificador de la orden a cancelar
+     * @return Objeto que representa la orden cancelada
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -211,6 +245,8 @@ class Client extends Object
     /**
      * Método que entrega el balance de las billeteras del usuario en CryptoMKT
      * Este método si requiere autenticación
+     * @include 006-balance.php
+     * @return Arreglo con los objetos de las billeteras del usuario y su balance
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -228,6 +264,9 @@ class Client extends Object
     /**
      * Método que crea una orden de pago
      * Este método si requiere autenticación
+     * @include 001-crear_orden_pago.php
+     * @param PaymentOrder Objeto que representa la orden de pago que se desea crear
+     * @return Objeto que representa la orden de pago actualizada al resultado de creación
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -246,6 +285,9 @@ class Client extends Object
     /**
      * Método que recupera una orden de pago y su estado
      * Este método si requiere autenticación
+     * @include 002-estado_orden_pago.php
+     * @param id Identificador de la orden de pago que se desea buscar
+     * @return Objeto que representa la orden de pago que se buscó
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */
@@ -264,6 +306,9 @@ class Client extends Object
 
     /**
      * Método que crea la URL final que se usará para acceder al servicio web
+     * @param recurso Recurso dentro de la API de CryptoMKT que se desea consumir
+     * @param params Parámetros por GET que se pasarán a la API (parámetro => valor)
+     * @return String con la URL bien formada, incluyendo host, versión API, recurso y parámetros por GET
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-12
      */
@@ -281,6 +326,9 @@ class Client extends Object
      * Método que consume el servicio web de CryptoMKT
      * Este método crea las cabeceras con la firma de los datos del servicio que
      * se está consultando
+     * @param url URL bien formada que se consumirá
+     * @param data Datos a pasar por POST al servicio web
+     * @return \sasco\CryptoMKT\Client\Response con la respuesta del servicio
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-18
      */
@@ -307,6 +355,7 @@ class Client extends Object
 
     /**
      * Método que entrega el timestamp en zona horaria UTC
+     * @return Entrega el timestamp en UTC
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2017-10-13
      */

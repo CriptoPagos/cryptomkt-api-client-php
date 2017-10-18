@@ -20,7 +20,7 @@
  */
 
 /**
- * @file 005-cancelar_orden.php
+ * @example 005-cancelar_orden.php
  * Ejemplo para cancelar una orden de un usuario
  * @link https://developers.cryptomkt.com/es/#cancelar-una-orden
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
