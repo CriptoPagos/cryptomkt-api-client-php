@@ -15,14 +15,12 @@ Instalación
 
 Directamente desde la terminal con:
 
-        $ composer require sasco/cryptomkt-api-client dev-master
+        $ composer require sasco/cryptomkt-api-client
 
 O editando el archivo *composer.json* y agregando:
 
         {
                 "require": {
-                         "sasco/cryptomkt-api-client": "dev-master"
+                         "sasco/cryptomkt-api-client": "1.*"
                 }
         }
-
-Por el momento, la única versión disponible es la de desarrollo.
