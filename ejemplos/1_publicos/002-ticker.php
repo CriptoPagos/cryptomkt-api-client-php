@@ -24,7 +24,7 @@
  * Ejemplo para obtener el ticker de cierto mercado
  * @link https://developers.cryptomkt.com/es/#obtener-ticker
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // incluir autoload composer
@@ -38,11 +38,9 @@ $Client = new \sasco\CryptoMKT\Client();
 // mercados disponibles
 print_r($Client->getTicker('ETHCLP'));
 
-// idealmente, utilizar la clase con el mercado: \sasco\CryptoMKT\Market\ETHCLP
-// al hacerlo así, se obtiene sólo el ticker de este mercado.
-// en ejemplos futuros de mercados se usará sólo esta forma
-// a pesar que existen los mismos métodos en el cliente que se pueden usar
-// pasando los parámetros correspondientes
-$Market = new \sasco\CryptoMKT\Market\ETHCLP();
-$Market->setClient($Client);
+// también se puede utilizar el método que obtiene el mercado y luego el ticker
+// en ejemplos futuros de mercados se usará sólo esta forma (creando el mercado
+// primero) a pesar que existen los mismos métodos en el cliente que se pueden
+// usar pasando los parámetros correspondientes
+$Market = $Client->getMarket('ETHCLP');
 print_r($Market->getTicker());

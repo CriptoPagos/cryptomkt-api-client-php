@@ -24,7 +24,7 @@ namespace sasco\CryptoMKT\Payment;
 /**
  * Clase que representa una orden de pago de CryptoMKT
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-13
+ * @version 2017-11-22
  */
 class Order extends \sasco\CryptoMKT\Object
 {
@@ -51,6 +51,9 @@ class Order extends \sasco\CryptoMKT\Object
     protected $qr; ///< Url de la imagen QR de la orden de pago
     protected $payment_url; ///< Url de voucher de orden de pago
     protected $obs; ///< Observaciones
+    protected $remaining; ///< tiempo que queda para hacer el pago
+    protected $refund_email; ///< correo para hacer devolución en caso de problemas
+    protected $token; ///< token para url de pago en CryptoMKT
 
     protected $statuses = [
         -4  => 'Pago múltiple',

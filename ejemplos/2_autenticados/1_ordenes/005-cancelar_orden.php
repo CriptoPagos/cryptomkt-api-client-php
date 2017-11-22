@@ -24,7 +24,7 @@
  * Ejemplo para cancelar una orden de un usuario
  * @link https://developers.cryptomkt.com/es/#cancelar-una-orden
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // credenciales
@@ -35,9 +35,7 @@ $api_secret = '';
 require '../../../vendor/autoload.php';
 
 // crear cliente
-$Client = new \sasco\CryptoMKT\Client();
-$Client->setApiKey($api_key);
-$Client->setApiSecret($api_secret);
+$Client = new \sasco\CryptoMKT\Client($api_key, $api_secret);
 
 // cancelar orden
-print_r($Client->cancelOrder('M335846'));
+print_r($Client->cancelOrder('M359902'));

@@ -24,7 +24,7 @@
  * Ejemplo para obtener el libro de ordenes de cierto mercado
  * @link https://developers.cryptomkt.com/es/#libro-de-ordenes
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // incluir autoload composer
@@ -32,8 +32,7 @@ require '../../vendor/autoload.php';
 
 // crear cliente y mercado
 $Client = new \sasco\CryptoMKT\Client();
-$Market = new \sasco\CryptoMKT\Market\ETHCLP();
-$Market->setClient($Client);
+$Market = $Client->getMarket('ETHCLP');
 
 // obtener libro de compra y de venta
 print_r($Market->getBuyBook());

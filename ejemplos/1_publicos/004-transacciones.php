@@ -24,7 +24,7 @@
  * Ejemplo para obtener las transacciones de cierto mercado
  * @link https://developers.cryptomkt.com/es/#obtener-trades
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // incluir autoload composer
@@ -32,8 +32,7 @@ require '../../vendor/autoload.php';
 
 // crear cliente y mercado
 $Client = new \sasco\CryptoMKT\Client();
-$Market = new \sasco\CryptoMKT\Market\ETHCLP();
-$Market->setClient($Client);
+$Market = $Client->getMarket('ETHCLP');
 
 // obtener transacciones en rango de fechas
 print_r($Market->getTrades('2017-10-01', '2017-10-02'));

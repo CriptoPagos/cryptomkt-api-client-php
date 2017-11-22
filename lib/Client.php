@@ -24,7 +24,7 @@ namespace sasco\CryptoMKT;
 /**
  * Clase principal con el cliente de CryptoMKT
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 class Client extends Object
 {
@@ -35,6 +35,33 @@ class Client extends Object
     protected $api_key; ///< API key para autenticación
     protected $api_secret; ///< API secret para autenticación
     protected $response; ///< Objeto con la respuesta del servicio web de CryptoMKT
+
+    /**
+     * Constructor del cliente
+     * @param api_key API key de la API de CryptoMKT
+     * @param api_secret API secret de la API de CryptoMKT
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
+     * @version 2017-11-22
+     */
+    public function __construct($api_key = null, $api_secret = null)
+    {
+        if ($api_key && $api_secret) {
+            $this->setApiKey($api_key);
+            $this->setApiSecret($api_secret);
+        }
+    }
+
+    /**
+     * Método que entrega el objeto de un mercado
+     * @param market Nombre del mercado que se desea recuperar su objeto
+     * @return \sasco\CryptoMKT\Market
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
+     * @version 2017-11-22
+     */
+    public function getMarket($market)
+    {
+        return new \sasco\CryptoMKT\Market($market, $this);
+    }
 
     /**
      * Método que entrega los mercados disponibles en CryptoMKT

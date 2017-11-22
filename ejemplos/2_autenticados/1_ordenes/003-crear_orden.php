@@ -24,7 +24,7 @@
  * Ejemplo para crear una orden de compra o venta de un usuario en cierto mercado
  * @link https://developers.cryptomkt.com/es/#crear-orden
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // credenciales
@@ -35,11 +35,8 @@ $api_secret = '';
 require '../../../vendor/autoload.php';
 
 // crear cliente y mercado
-$Client = new \sasco\CryptoMKT\Client();
-$Client->setApiKey($api_key);
-$Client->setApiSecret($api_secret);
-$Market = new \sasco\CryptoMKT\Market\ETHCLP();
-$Market->setClient($Client);
+$Client = new \sasco\CryptoMKT\Client($api_key, $api_secret);
+$Market = $Client->getMarket('ETHCLP');
 
 // crear una orden de compra para el usuario en el mercado
 // poco ETH y precio muy bajo para evitar comprar por error si se ejecuta el ejemplo sin modificar

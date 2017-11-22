@@ -33,22 +33,17 @@ class Market extends Object
     protected $client; ///< Cliente de CryptoMKT
 
     /**
-     * Constructor del mercado, permite detectar el mercado y asignar o bien
-     * se espera que quien instancia la clase lo indique (en constructor o con
-     * setMarket() posteriormente)
+     * Constructor del mercado
      * @param market Nombre del mercado que se está construyendo
+     * @param client Objeto con el cliente \sasco\CryptoMKT\Client
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-11-22
      */
-    public function __construct($market = null)
+    public function __construct($market, $client = null)
     {
-        if ($market == null) {
-            $class = get_called_class();
-            if ($class!=get_class()) {
-                $this->setMarket(explode('\\', $class)[3]);
-            }
-        } else {
-            $this->setMarket($market);
+        $this->setMarket($market);
+        if ($client) {
+            $this->setClient($client);
         }
     }
 

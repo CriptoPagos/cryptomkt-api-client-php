@@ -24,7 +24,7 @@
  * Ejemplo para obtener las ordenes ejecutadas de un usuario en cierto mercado
  * @link https://developers.cryptomkt.com/es/#ordenes-ejecutadas
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // credenciales
@@ -35,11 +35,8 @@ $api_secret = '';
 require '../../../vendor/autoload.php';
 
 // crear cliente y mercado
-$Client = new \sasco\CryptoMKT\Client();
-$Client->setApiKey($api_key);
-$Client->setApiSecret($api_secret);
-$Market = new \sasco\CryptoMKT\Market\ETHCLP();
-$Market->setClient($Client);
+$Client = new \sasco\CryptoMKT\Client($api_key, $api_secret);
+$Market = $Client->getMarket('ETHCLP');
 
 // obtener ordenes ejecutadas del usuario en el mercado
 print_r($Market->getExecutedOrders());

@@ -24,7 +24,7 @@
  * Ejemplo para crear una orden de pago
  * @link https://developers.cryptomkt.com/es/#crear-orden-de-pago
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-10-18
+ * @version 2017-11-22
  */
 
 // credenciales
@@ -35,9 +35,7 @@ $api_secret = '';
 require '../../../vendor/autoload.php';
 
 // crear cliente
-$Client = new \sasco\CryptoMKT\Client();
-$Client->setApiKey($api_key);
-$Client->setApiSecret($api_secret);
+$Client = new \sasco\CryptoMKT\Client($api_key, $api_secret);
 
 // crear orden de pago
 // $Client->createPaymentOrder() modifica $PaymentOrder asignando la respuesta con los datos de la orden
