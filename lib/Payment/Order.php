@@ -70,12 +70,12 @@ class Order extends \sasco\CryptoMKT\Object
      * Método que entrega los datos que se asignaron a la orden para que sea creada
      * @return Arreglo con los datos necesarios para la creación de la orden de pago
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-13
+     * @version 2017-11-23
      */
     public function getData()
     {
         $data = [];
-        foreach (['to_receive', 'to_receive_currency', 'payment_receiver', 'external_id', 'callback_url', 'error_url', 'success_url'] as $var) {
+        foreach (['to_receive', 'to_receive_currency', 'payment_receiver', 'external_id', 'callback_url', 'error_url', 'success_url', 'refund_email'] as $var) {
             if (isset($this->$var)) {
                 $data[$var] = $this->$var;
             }
