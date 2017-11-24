@@ -357,24 +357,28 @@ class Client extends Object
      * @param data Datos a pasar por POST al servicio web
      * @return \sasco\CryptoMKT\Client\Response con la respuesta del servicio
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2017-10-18
+     * @version 2017-11-23
      */
     private function consume($url, $data = null)
     {
-        $timestamp = $this->getTimestamp();
-        $path = parse_url($url)['path'];
-        $msg = $timestamp.$path;
-        if ($data) {
-            ksort($data);
-            foreach($data as $var => $val) {
-                $msg .= $val;
+        if (!empty($this->api_key) && !empty($this->api_secret)) {
+            $timestamp = $this->getTimestamp();
+            $path = parse_url($url)['path'];
+            $msg = $timestamp.$path;
+            if ($data) {
+                ksort($data);
+                foreach($data as $var => $val) {
+                    $msg .= $val;
+                }
             }
+            $header = [
+                'X-MKT-APIKEY' => $this->api_key,
+                'X-MKT-SIGNATURE' => hash_hmac('sha384', $msg, $this->api_secret),
+                'X-MKT-TIMESTAMP' => $timestamp,
+            ];
+        } else {
+            $header = [];
         }
-        $header = [
-            'X-MKT-APIKEY' => $this->api_key,
-            'X-MKT-SIGNATURE' => hash_hmac('sha384', $msg, $this->api_secret),
-            'X-MKT-TIMESTAMP' => $timestamp,
-        ];
         $Socket = new \sasco\CryptoMKT\Client\Socket();
         $Response = new \sasco\CryptoMKT\Client\Response($Socket->consume($url, $data, $header));
         return $Response;
