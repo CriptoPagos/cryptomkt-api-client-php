@@ -24,15 +24,15 @@ namespace sasco\CryptoMKT\Payment;
 /**
  * Clase que representa una orden de pago de CryptoMKT
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2017-11-22
+ * @version 2017-11-24
  */
 class Order extends \sasco\CryptoMKT\Object
 {
 
     // atributos obligatorios para crear una orden
     protected $to_receive; ///< Monto a cobrar de la orden de pago. ARS soporta 2 decimales. CLP no soporta decimales. "." como separador de decimales.
-    protected $to_receive_currency; ///< string requerido	Tipo de moneda con la cual recibirá el pago.
-    protected $payment_receiver; ///< string requerido	Email del usuario o comercio que recibirá el pago. Debe estar registrado en CryptoMarket.
+    protected $to_receive_currency; ///< Tipo de moneda con la cual recibirá el pago.
+    protected $payment_receiver; ///< Email del usuario o comercio que recibirá el pago. Debe estar registrado en CryptoMarket.
 
     // atributos opcionales para crear una orden
     protected $external_id; /// ID externo. Permite asociar orden interna de comercio con orden de pago. Max. 64 caracteres.
@@ -48,6 +48,7 @@ class Order extends \sasco\CryptoMKT\Object
     protected $expected_amount; ///< Cantidad que espera la orden para ser aceptada
     protected $created_at; ///< Fecha de creación de la orden de pago
     protected $updated_at; ///< Fecha de actualización de la orden de pago
+    protected $server_at; ///< cuando se creo la orden en el servidor
     protected $qr; ///< Url de la imagen QR de la orden de pago
     protected $payment_url; ///< Url de voucher de orden de pago
     protected $obs; ///< Observaciones
