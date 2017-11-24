@@ -39,6 +39,7 @@ class Order extends \sasco\CryptoMKT\Object
     protected $callback_url; ///< Url a la cual se notificarán los cambios de estado de la orden. Max. 256 caracteres.
     protected $error_url; ///< Url a la cual se rediccionará en caso de error. Max. 256 caracteres.
     protected $success_url; ///< Url a la cual se rediccionará en caso de éxito. Max. 256 caracteres.
+    protected $refund_email; ///< correo para hacer devolución en caso de problemas
 
     // atributos que se asignan a través del servicio web de CryptoMKT
     protected $id; ///< ID interno de la orden de pago
@@ -53,7 +54,6 @@ class Order extends \sasco\CryptoMKT\Object
     protected $payment_url; ///< Url de voucher de orden de pago
     protected $obs; ///< Observaciones
     protected $remaining; ///< tiempo que queda para hacer el pago
-    protected $refund_email; ///< correo para hacer devolución en caso de problemas
     protected $token; ///< token para url de pago en CryptoMKT
 
     protected $statuses = [
