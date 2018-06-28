@@ -26,7 +26,7 @@ namespace sasco\CryptoMKT\Client;
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
  * @version 2017-10-12
  */
-class Response extends \sasco\CryptoMKT\Object
+class Response extends \sasco\CryptoMKT\AObject
 {
 
     protected $status; ///< Estado de la respuesta (con su código)

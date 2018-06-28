@@ -26,7 +26,7 @@ namespace sasco\CryptoMKT\Payment;
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
  * @version 2017-11-24
  */
-class Order extends \sasco\CryptoMKT\Object
+class Order extends \sasco\CryptoMKT\AObject
 {
 
     // atributos obligatorios para crear una orden
