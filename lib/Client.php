@@ -26,7 +26,7 @@ namespace sasco\CryptoMKT;
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
  * @version 2017-11-22
  */
-class Client extends Object
+class Client extends AObject
 {
 
     private $_url = 'https://api.cryptomkt.com'; ///< URL base para las llamadas a la API

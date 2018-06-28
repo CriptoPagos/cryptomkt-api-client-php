@@ -26,7 +26,7 @@ namespace sasco\CryptoMKT;
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
  * @version 2017-10-12
  */
-class Market extends Object
+class Market extends AObject
 {
 
     protected $market; ///< Mercado sobre el que se está operando
